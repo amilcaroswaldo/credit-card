@@ -1,0 +1,21 @@
+.header {
+    background-color: #b93811; /* Color de fondo */
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin: 0 28px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}

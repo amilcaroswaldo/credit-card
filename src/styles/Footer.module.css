@@ -1,0 +1,12 @@
+/* src/styles/Footer.module.css */
+
+.footer {
+    background-color: #333; /* Color de fondo */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
