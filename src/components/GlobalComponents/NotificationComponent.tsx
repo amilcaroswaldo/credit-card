@@ -6,7 +6,7 @@ interface NotificationProps {
     onClose?: () => void;
 }
 
-const Notification: React.FC<NotificationProps> = ({ message, duration = 5000, onClose }) => {
+const Notification: React.FC<NotificationProps> = ({ message, duration = 2000, onClose }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onClose?.(); // Llama a la función de callback si se proporciona
@@ -21,7 +21,7 @@ const Notification: React.FC<NotificationProps> = ({ message, duration = 5000, o
                 position: 'fixed',
                 top: '20px',
                 right: '20px',
-                backgroundColor: '#f44336',
+                backgroundColor: '#333',
                 color: 'white',
                 padding: '20px',
                 borderRadius: '4px',

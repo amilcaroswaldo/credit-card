@@ -8,6 +8,7 @@ export interface EstadoCuentaRespons {
     cuotaMinima?: number;
     montoContadoConIntereses?: number;
     montoTotal?: number;
+    montoTotalMesActualAnterior?: number;
 }
 export interface GetConfiguracion { 
     nombre?: string;

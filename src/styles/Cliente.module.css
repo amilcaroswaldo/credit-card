@@ -1,0 +1,138 @@
+.container {
+  padding: 5px;
+  /* grid-template-columns: 1fr 1fr; */
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 5px;
+}
+.container_table {
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.th {
+  background-color: #b93811;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.td {
+  padding: 4px;
+  border: 1px solid #ddd;
+  text-align: center;
+  height: 10px;
+}
+
+.tr:hover {
+  background-color: #e0f7fa;
+}
+
+/* .checkbox_container input[type="checkbox"] {
+    display: none;
+} */
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #b93811;
+  border-radius: 4px;
+  position: relative;
+  margin-right: 10px;
+  background-color: #b93811;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.checkbox_container input[type="checkbox"]:checked + .checkbox {
+  background-color: #b93811;
+  border-color: #b93811;
+}
+
+.checkbox_container input[type="checkbox"]:checked + .checkbox::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.container_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  align-items: center;
+  width: 100%;
+}
+.details {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding-left: 5%;
+  height: 230px;
+}
+
+.details h3 {
+  color: #b93811;
+  margin-bottom: 10px;
+}
+
+.details p {
+  margin: 5px 0;
+  color: #555;
+}
+.additionalInfo {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding-left: 5%;
+  height: 230px;
+}
+
+.flagOrCard {
+  width: 100%;
+  text-align: center;
+  color: #b93811;
+}
+
+.flag {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.accountStatusInfo {
+  font-size: 14px;
+  color: #555;
+  margin-top: 45px;
+}

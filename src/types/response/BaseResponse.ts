@@ -1,7 +1,7 @@
 export interface ObjectResponse<T> { 
     code?: number;
     message?: string;
-    items?: T[];
+    items?: T;
 }
 export interface GenericResponse { 
     code?: number;
