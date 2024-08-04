@@ -3,18 +3,14 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Compras.module.css';
 import { GenericResponse, ListResponse, ObjectResponse } from '@/types/response/BaseResponse';;
 import { TarjetaResponse } from '@/types/response/InfoClienteResponse';
-import { AddTransaccionRequest } from '@/types/request/EstadoCuentaRequest';
-import { AddTransaction } from '@/services/EstadoCuentaServices';
+import {  AddpagoRequest, AddTransaccionRequest } from '@/types/request/EstadoCuentaRequest';
+import { AddPago, AddTransaction } from '@/services/EstadoCuentaServices';
 
-const ComprasComponent: React.FC = () => {
+const PagosComponent: React.FC = () => {
     const [formData, setFormData] = useState({
         numeroTarjeta: '',
-        descripcion: '',
-        monto: '',
-        tipoTransaccion: 'compra',
-        categoria: 'comida',
+        monto: ''
     });
-    // const [cliente, setCliente] = useState<ClienteResponse>();
     const [tarjeta, setTarjeta] = useState<TarjetaResponse>();
     const [error, setError] = useState<string | null>(null);
 
@@ -34,14 +30,11 @@ const ComprasComponent: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         try {
             e.preventDefault();
-            const requestCompras: AddTransaccionRequest = {
+            const requestCompras: AddpagoRequest = {
                 numeroTarjeta: tarjeta?.numeroTarjeta!,
-                categoria: formData.categoria,
-                descripcion: formData.descripcion,
                 monto: Number(formData.monto),
-                tipoTransaccion: formData.tipoTransaccion
             }
-            const responseTransacciones : GenericResponse = await AddTransaction(requestCompras);
+            const responseTransacciones : GenericResponse = await AddPago(requestCompras);
             if (responseTransacciones.code! !== 0) {
                 setError("se ha hecho la compra")
             }
@@ -93,18 +86,6 @@ const ComprasComponent: React.FC = () => {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <label htmlFor="descripcion" className={styles.label}>Descripción</label>
-                    <input
-                        type="text"
-                        id="descripcion"
-                        name="descripcion"
-                        value={formData.descripcion}
-                        onChange={handleInputChange}
-                        className={styles.input}
-                        required
-                    />
-                </div>
-                <div className={styles.formGroup}>
                     <label htmlFor="monto" className={styles.label}>Monto</label>
                     <input
                         type="number"
@@ -115,40 +96,11 @@ const ComprasComponent: React.FC = () => {
                         className={styles.input}
                         required
                     />
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="tipoTransaccion" className={styles.label}>Tipo de Transacción</label>
-                    <select
-                        id="tipoTransaccion"
-                        name="tipoTransaccion"
-                        value={formData.tipoTransaccion}
-                        onChange={handleInputChange}
-                        className={styles.select}
-                    >
-                        <option value="compra">Compra</option>
-                        <option value="pago">Pago</option>
-                        <option value="reembolso">Reembolso</option>
-                    </select>
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="categoria" className={styles.label}>Categoría</label>
-                    <select
-                        id="categoria"
-                        name="categoria"
-                        value={formData.categoria}
-                        onChange={handleInputChange}
-                        className={styles.select}
-                    >
-                        <option value="comida">Comida</option>
-                        <option value="entretenimiento">Entretenimiento</option>
-                        <option value="transporte">Transporte</option>
-                        <option value="salud">Salud</option>
-                    </select>
-                </div>
+                </div>            
                 <button type="submit" className={styles.submitButton}>Guardar Transacción</button>
             </form>
         </div>
     );
 };
 
-export default ComprasComponent;
+export default PagosComponent;

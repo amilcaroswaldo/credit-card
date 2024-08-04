@@ -67,8 +67,6 @@ const EstadoCuentaComponent: React.FC = () => {
             const responseTransacciones:
                 ListResponse<TransaccionesResponse> = await GetTransaccionRangeDate(requestTransacciones);
             setTransacciones(responseTransacciones.items!);
-            // console.log(transacciones!,requestTransacciones);
-
         } catch (error) {
             setError(error instanceof Error ? error.message : 'Error desconocido');
         }

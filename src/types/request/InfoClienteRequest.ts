@@ -7,3 +7,11 @@ export interface TransaccionesRequest {
     fchInicio: string;
     fchFin: string;
 }
+
+export interface AddTransaccionrequest {
+    numeroTarjeta: string;
+    descripcion: string;
+    monto: number;
+    tipoTransaccion: string;
+    categoria: string;
+}

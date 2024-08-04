@@ -17,7 +17,13 @@ const Header: React.FC = () => {
             setError('Para seguir con los procesos, seleccione un cliente valido.');
         }
     }
-
+    const handleOpenpageOthers = () => {
+        const crdCard = sessionStorage.getItem('creditCardData');
+        if (crdCard === null) {
+            router.push('/EstadoCuenta');
+            // setError('Es necesario validar el estado de cuenta para seguir con otros procesos');
+        }
+    }
     useEffect(() => {
         const clientData = sessionStorage.getItem('clientData');
         if (clientData === null) {
@@ -41,9 +47,9 @@ const Header: React.FC = () => {
                     <ul>
                         <li><Link href="/">Clientes</Link></li>
                         <li><Link href="/EstadoCuenta" onClick={() => handleOpenpage()}>Estado de cuenta</Link></li>
-                        <li><Link href="/Compras" onClick={() => handleOpenpage()}>Compras</Link></li>
-                        <li><Link href="/Pagos" onClick={() => handleOpenpage()}>Pagos</Link></li>
-                        <li><Link href="/Transacciones" onClick={() => handleOpenpage()}>Historial de transacciones</Link></li>
+                        <li><Link href="/Compras" onClick={() => handleOpenpageOthers()}>Compras</Link></li>
+                        <li><Link href="/Pagos" onClick={() => handleOpenpageOthers()}>Pagos</Link></li>
+                        <li><Link href="/Transacciones" onClick={() => handleOpenpageOthers()}>Historial de transacciones</Link></li>
                     </ul>
                 </nav>
             </header>

@@ -29,8 +29,9 @@ const ClientList: React.FC = () => {
             const response: ObjectResponse<TarjetaResponse> = await getDataCard(request!);
             if (response.code === 0) {
                 setError(response.message!);
+                sessionStorage.clear();
                 return;
-            }    
+            }
             setTarjeta(response.items!);
             sessionStorage.setItem('clientData', JSON.stringify(clienteRes))
         } catch (error) {
@@ -108,12 +109,10 @@ const ClientList: React.FC = () => {
                         <div className={styles.additionalInfo}>
                             <div className={styles.flagOrCard}>
                                 <div className={styles.flag}>
-                                    {(tarjeta !== undefined || tarjeta !== null) && <p>Ya puedes seguir los demas procesos.</p> || <p>Este cliente no tiene tarjeta</p>}
+                                    <p>Detalle de clientes</p>
                                 </div>
                                 <p className={styles.accountStatusInfo}>
-                                    {(tarjeta !== undefined || tarjeta !== null) && 'Puede ver los estados de cuentas de este cliente haciendo clic en el botón correspondiente.'
-                                        || 'Seleccione otro cliente'
-                                    }
+                                    si tiene tarjeta. Puede ver los estados de cuentas de este cliente haciendo clic en el botón correspondiente.
                                 </p>
                             </div>
                         </div>
